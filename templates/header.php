@@ -17,12 +17,6 @@
 </head>
 <body>
 
-<script type="text/javascript">
-    function goBack() {
-        history.back();
-    }
-</script>
-
 <div id="container" class="container">
     <div class="col-12">
         <nav class="mb-3 navbar navbar-toggleable-md navbar-light">

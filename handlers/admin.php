@@ -24,10 +24,10 @@ switch ($_POST['operation_type']) {
     case 'disable_main_content':
         disableContent($pdo);
         break;
-//    case 'update_category':
-//        updateCategory($pdo);
-//        break;
-//    case 'update_product':
+    case 'send_feedback':
+        sendFeedback($pdo);
+        break;
+    case 'update_product':
 //        updateProduct($pdo);
 //        break;
 //    case 'confirm_purchase':
@@ -115,4 +115,20 @@ function disableContent($pdo)
 
     header('Content-Type: application/json; charset=UTF-8');
     die(json_encode(['response' => $response]));
+}
+
+function sendFeedback($pdo)
+{
+
+    $stmt = $pdo->prepare("INSERT INTO feedback (name, email, description, date) VALUES (:name, :email, :description, :date)");
+
+    $date = new DateTime('now');
+
+    $stmt->bindParam(':name', $_POST['name']);
+    $stmt->bindParam(':email', $_POST['email']);
+    $stmt->bindParam(':description', $_POST['text']);
+    $stmt->bindParam(':date', $date->format('Y-m-d H:i:s'));
+    $stmt->execute();
+
+    header('Location: /feedback-success.php');
 }
