@@ -44,3 +44,15 @@ hr {
 .blockquote {
 	border-left: none;
 }
+
+.carousel-indicators {
+	bottom: -3px;
+}
+
+.carousel-indicators li {
+	background-color: black;
+}
+
+.carousel-indicators .active {
+	background-color: red;
+}

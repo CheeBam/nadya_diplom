@@ -19,7 +19,7 @@
                         <div style="margin: 10px 0">
                             <a class="btn btn-primary" href="/product.php?id=<?=$item->id?>&shop=<?=$shop['title']?>"><i class="fas fa-shopping-cart"></i></a>
                             <span style="width: 30px; display: inline-block"></span>
-                            <a class="btn btn-primary" href="#"><i class="fas fa-trophy"></i></a>
+                            <a class="btn btn-primary" href="/product-all.php?name=<?=$item->title?>"><i class="fas fa-trophy"></i></a>
                         </div>
                     </div>
                 </div>

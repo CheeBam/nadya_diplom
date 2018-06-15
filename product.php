@@ -15,10 +15,12 @@ $amounts = [];
 
 foreach($product->purchases as $purchase) {
     $price += $purchase->price;
-    if (array_key_exists($purchase->date, $amounts)) {
-        $amounts[$purchase->date] ++;
+    $date = new DateTime($purchase->date);
+    $format_date = $date->format('Y-m-d');
+    if (array_key_exists($format_date, $amounts)) {
+        $amounts[$format_date] ++;
     } else {
-        $amounts[$purchase->date] = 1;
+        $amounts[$format_date] = 1;
     }
 }
 
@@ -31,7 +33,7 @@ foreach ($amounts as $key => $value){
 }
 
 if ($price != 0) {
-    $product->avg_price = $price / count($product->purchases);
+    $product->avg_price = round($price / count($product->purchases));
     $product->act_price = end($product->purchases)->price;
 } else {
     $product->avg_price = '-';
@@ -41,7 +43,7 @@ if ($price != 0) {
 $data = [
     'menu_items' => include 'data/menu.php',
     'product' => $content->data[0],
-    'shop_title' => $shop['title'],
+    'shop_title' => ucfirst($shop['title']),
     'amounts' => $new_amounts,
 ];
 

@@ -1,8 +1,7 @@
 <div>
-    <h3 class="text-center mb-3"> <?=$product->brand->title?> <?=$product->title?> у магазинi <?=ucfirst($shop_title)?></h3>
+    <h3 class="text-center mb-3"> <?=$product->brand->title?> <?=$product->title?> у магазинi <?=$shop_title?></h3>
 
     <div class="row">
-
         <div class="col-md-4 text-center">
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" height="180" src="<?=$product->image?>" alt="Нема зображення">
@@ -18,7 +17,7 @@
                 </ul>
                 <div class="card-body">
                     <div style="margin: 10px 0">
-                        <a class="btn btn-primary" href="#"><i class="fas fa-trophy"></i></a>
+                        <a class="btn btn-primary" href="/product-all.php?name=<?=$product->title?>"><i class="fas fa-trophy"></i></a>
                     </div>
                 </div>
             </div>
@@ -28,9 +27,7 @@
             <div id="chartContainerPrices" style="height: 300px; width: 100%; margin-bottom: 30px"></div>
             <div id="chartContainerAmounts" style="height: 300px; width: 100%;"></div>
         </div>
-
     </div>
-
 
 </div>
 
@@ -38,10 +35,9 @@
 
     let prices = <?php echo json_encode($product->purchases) ?>;
     let amounts = <?php echo json_encode($amounts) ?>;
+    let shop = <?php echo json_encode($shop_title) ?>;
 
     window.onload = function() {
-
-        // console.log(amounts);
 
         let dataPrices = [];
         let dataAmounts = [];
@@ -64,6 +60,7 @@
                 includeZero: false
             },
             data: [{
+                name: shop,
                 type: "spline",
                 yValueFormatString: "#,###.## ₴",
                 dataPoints: dataPrices
@@ -76,6 +73,10 @@
             title: {
                 text: "Графік кількості покупок",
                 titleFontSize: 18,
+            },
+            axisY: {
+                title: "Кількість",
+                includeZero: false
             },
             data: [
                 {
