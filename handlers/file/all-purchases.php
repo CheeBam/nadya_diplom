@@ -49,6 +49,6 @@ foreach ($shops as $shop) {
     $result[] = [];
 }
 
-array_to_csv_download($result, "numbers.csv");
+array_to_csv_download($result, "purchases.csv");
 
 

@@ -13,8 +13,6 @@ foreach ($shops as $shop) {
     $link = $shop['path'] . '/product/by/name/' . $_GET['name'];
     $content = api_request($shop['path'] . '/product/by/name/' . $_GET['name'], 'GET', '', '');
 
-//    var_dump($content->data);
-
     if (!isset($content->data->purchases) || !isset($content->data->product)) continue;
 
     $chart_data[] = [

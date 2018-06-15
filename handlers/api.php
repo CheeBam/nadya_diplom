@@ -1,7 +1,5 @@
 <?php
 
-//define('BASE_URL', 'http://diplom-api.hz/api/');
-
 function api_request($resource, $method, $login, $password, $args=null) {
 
     $options = [

@@ -27,23 +27,47 @@
             <div class="col-md-4">
                 <div class="card text-center">
                     <div class="card-header">
-                        Продажі по магазинам
+                        Загальна інформація по магазинам
+                    </div>
+                    <div class="card-body">
+                        <button formmethod="get" id="shop-info" class="btn btn-primary mb-4 mt-4"
+                                formaction="/handlers/file/shop-info.php">Завантажити файл</button>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Всі категорії, бренди та продукти кожного магазину. <br/>
+                        <span class="font-weight-bold">(не залежить від вибраної дати!)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Загальна інформація по продажам
                     </div>
                     <div class="card-body">
                         <button formmethod="get" id="all-purchases" class="btn btn-primary mb-4 mt-4"
                                 formaction="/handlers/file/all-purchases.php">Завантажити файл</button>
                     </div>
                     <div class="card-footer text-muted">
-                        Всі продажі та прибуток по кожному магазину
+                        Всі продажі та прибуток по кожному магазину. <br>
+                        Загальні значення.
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-    <!--            <button formaction="action2">Action2</button>-->
-
-            </div>
-            <div class="col-md-4">
-
+                <div class="card text-center">
+                    <div class="card-header">
+                        Додаткова інформація по продажам
+                    </div>
+                    <div class="card-body">
+                        <button formmethod="get" id="purchases-info" class="btn btn-primary mb-4 mt-4"
+                                formaction="/handlers/file/purchase-info.php">Завантажити файл</button>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Найбільш популярні та найдорожчі товари. <br/>
+                        Найбільш продуктивний день.
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -60,15 +84,5 @@
         $('#all-time-button').on('click', function () {
             window.location.href = '/report.php';
         });
-
-        $('#all-purchases').on('click', async function () {
-            let from = $('#from');
-            let to = $('#to');
-
-
-
-        });
-
     });
-
 </script>
