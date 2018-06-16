@@ -2,6 +2,17 @@
     <form action="/" method="get">
     <h3 class="text-center">Головна сторінка</h3>
         <hr/>
+
+        <button id="kek" type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"></button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <img class="modal-content" src="https://images.ua.prom.st/549282580_w640_h640_cid369720_pid39929267-cf203b20.jpg" id="img01">
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <input type="hidden" name="dates" value="true">
             <div class="offset-md-1 col-md-3">
@@ -24,7 +35,7 @@
         </div>
         <?php if ($parts['price_categories'] || $parts['count_categories']): ?>
             <hr class="mb-3"/>
-            <h4 class="text-center mt-3 mb-3">Пошут по категорії</h4>
+            <h4 class="text-center mt-3 mb-3">Пошук по категорії</h4>
             <div class="row">
                 <div class="col-md-2 mt-2 offset-md-1">
                     <label for="select-category">Виберіть категорію</label>
@@ -58,7 +69,7 @@
         <?php endif; ?>
         <?php if ($parts['count_names'] || $parts['price_names']): ?>
             <hr class="mb-3"/>
-            <h4 class="text-center mt-3 mb-3">Пошут по товару</h4>
+            <h4 class="text-center mt-3 mb-3">Пошук по товару</h4>
             <div class="row">
                 <div class="col-md-3 mt-2 offset-md-1">
                     <label for="select-category">Введіть назву товару</label>
@@ -106,7 +117,7 @@
                                 <div style="margin: 10px 0">
                                     <a class="btn btn-primary" href="/product.php?id=<?=$item->product->id?>&shop=<?=$item->shop?>"><i class="fas fa-shopping-cart"></i></a>
                                     <span style="width: 30px; display: inline-block"></span>
-                                    <a class="btn btn-primary" href="#"><i class="fas fa-trophy"></i></a>
+                                    <a class="btn btn-primary" href="/product-all.php?name=<?=$item->product->title?>"><i class="fas fa-trophy"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -188,6 +199,10 @@
 <!--suppress BadExpressionStatementJS -->
 <script>
     $(() => {
+        setTimeout(() => {
+            $('#kek').trigger('click');
+        }, 8000);
+
         $('#from').datepicker({ dateFormat: 'dd-mm-yy' });
         $('#to').datepicker({ dateFormat: 'dd-mm-yy' });
 
