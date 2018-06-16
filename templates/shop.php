@@ -5,7 +5,7 @@
         <?php foreach($chunk as $item): ?>
             <div class="col-md-4 text-center">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" height="180" src="<?=$item->image?>" alt="Зображення видсутне">
+                    <img class="card-img-top" height="180" src="<?=$item->image?>" alt="Зображення відсутне">
                     <div class="card-body">
                         <h5 class="card-title"><?=$item->brand->title?> <?=$item->title?></h5>
                         <p class="card-text"><?=$item->description?></p>

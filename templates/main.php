@@ -3,16 +3,6 @@
     <h3 class="text-center">Головна сторінка</h3>
         <hr/>
 
-        <button id="kek" type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"></button>
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <img class="modal-content" src="https://images.ua.prom.st/549282580_w640_h640_cid369720_pid39929267-cf203b20.jpg" id="img01">
-                </div>
-            </div>
-        </div>
-
         <div class="row">
             <input type="hidden" name="dates" value="true">
             <div class="offset-md-1 col-md-3">
@@ -103,7 +93,7 @@
                 <?php foreach($top_products as $item): ?>
                     <div class="col-md-4 text-center">
                         <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" height="180" src="<?=$item->product->image?>" alt="Зображення видсутне">
+                            <img class="card-img-top" height="180" src="<?=$item->product->image?>" alt="Зображення відсутне">
                             <div class="card-body">
                                 <h5 class="card-title"><?=$item->product->brand->title?> <?=$item->product->title?></h5>
                                 <p class="card-text"><?=$item->product->description?></p>
@@ -199,10 +189,6 @@
 <!--suppress BadExpressionStatementJS -->
 <script>
     $(() => {
-        setTimeout(() => {
-            $('#kek').trigger('click');
-        }, 8000);
-
         $('#from').datepicker({ dateFormat: 'dd-mm-yy' });
         $('#to').datepicker({ dateFormat: 'dd-mm-yy' });
 
